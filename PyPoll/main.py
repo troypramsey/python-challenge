@@ -1,7 +1,7 @@
 # Importing modules for reading and writing csv files
 import os
 import csv
-import sys
+# import sys
 
 # Initializing path variable
 csv_path = os.path.join("Resources", "election_data.csv")
@@ -37,23 +37,27 @@ with open(csv_path, 'r') as csv_file:
         if value == winner:
             winner_name = str(key)
 
-    # Create a function to write the results
-    def results():
-        print("Election Results")
-        print("---------------------")
-        print(f"Total Votes: {total_votes}")
-        print("---------------------")
+    # Print the results to the terminal
+    print("Election Results")
+    print("---------------------")
+    print(f"Total Votes: {total_votes}")
+    print("---------------------")
+    # Iterates over candidate names and votes received and prints them to individual f-strings
+    for key, value in candidates_dict.items():
+        print(f"{key}: {round(value/total_votes * 100, 2)}% ({value})")
+    print("---------------------")
+    print(f"Winner: {winner_name}")
+    print("---------------------")
+        
+    # Write the results to "election_results.txt"
+    with open("election_results.txt", "w") as file:
+        file.write("Election Results \n")
+        file.write("---------------------\n")
+        file.write(f"Total Votes: {total_votes}\n")
+        file.write("---------------------\n")
         # Iterates over candidate names and votes received and prints them to individual f-strings
         for key, value in candidates_dict.items():
-            print(f"{key}: {round(value/total_votes * 100, 2)}% ({value})")
-        print("---------------------")
-        print(f"Winner: {winner_name}")
-        print("---------------------")
-        
-    # Print the results to the terminal
-    print(results())
-    
-    # Outputs results to election_results.txt file
-    sys.stdout = open("election_results.txt", 'w')
-    print(results())
-    sys.stdout.close()
+            file.write(f"{key}: {round(value/total_votes * 100, 2)}% ({value})\n")
+        file.write("---------------------\n")
+        file.write(f"Winner: {winner_name}\n")
+        file.write("---------------------\n")
