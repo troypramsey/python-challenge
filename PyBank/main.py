@@ -48,7 +48,7 @@ with open(csv_path, 'r') as csv_file:
             amounts_lst.pop(0)
 
     # Calculating Average Change
-    average_change = sum(change_lst) / total_months
+    # >>> average_change = round((sum(change_lst) / len(change_lst)), 2)
 
     # Printing out the final analysis
     print("Financial Analysis")
