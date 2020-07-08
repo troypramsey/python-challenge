@@ -37,7 +37,7 @@ with open(csv_path, 'r') as csv_file:
         if value == winner:
             winner_name = str(key)
 
-    # Prints out results to terminal
+    # Create a function to write the results
     def results():
         print("Election Results")
         print("---------------------")
@@ -49,7 +49,8 @@ with open(csv_path, 'r') as csv_file:
         print("---------------------")
         print(f"Winner: {winner_name}")
         print("---------------------")
-
+        
+    # Print the results to the terminal
     print(results())
     
     # Outputs results to election_results.txt file
