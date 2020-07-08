@@ -27,5 +27,13 @@ with open(csv_path, 'r') as csv_file:
         if value == winner:
             winner_name = str(key)
             
-    print(winner_name)
+    print("Election Results")
+    print("---------------------")
+    print(f"Total Votes: {total_votes}")
+    print("---------------------")
+    for key, value in candidates_dict.items():
+        print(f"{key}: {round(value/total_votes * 100, 2)}% ({value})")
+    print("---------------------")
+    print(f"Winner: {winner_name}")
+    print("---------------------")
     
