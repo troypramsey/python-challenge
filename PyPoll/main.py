@@ -1,6 +1,7 @@
 # Importing modules for reading and writing csv files
 import os
 import csv
+import sys
 
 # Initializing path variable
 csv_path = os.path.join("Resources", "election_data.csv")
@@ -36,7 +37,7 @@ with open(csv_path, 'r') as csv_file:
         if value == winner:
             winner_name = str(key)
 
-    # Prints out results        
+    # Prints out results
     print("Election Results")
     print("---------------------")
     print(f"Total Votes: {total_votes}")
@@ -48,3 +49,16 @@ with open(csv_path, 'r') as csv_file:
     print(f"Winner: {winner_name}")
     print("---------------------")
     
+    # Outputs results to election_results.txt file
+    sys.stdout = open("election_results.txt", 'w')
+    print("Election Results")
+    print("---------------------")
+    print(f"Total Votes: {total_votes}")
+    print("---------------------")
+    # Iterates over candidate names and votes received and prints them to individual f-strings
+    for key, value in candidates_dict.items():
+        print(f"{key}: {round(value/total_votes * 100, 2)}% ({value})")
+    print("---------------------")
+    print(f"Winner: {winner_name}")
+    print("---------------------")
+    sys.stdout.close()
