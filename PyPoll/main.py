@@ -11,6 +11,7 @@ with open(csv_path, 'r') as csv_file:
     total_votes = 0
     candidates_dict = {}
     winner = 0
+    winner_name = ''
 
     for row in csvreader:
         total_votes += 1
@@ -18,6 +19,13 @@ with open(csv_path, 'r') as csv_file:
             candidates_dict[row[2]] = 1
         else:
             candidates_dict[row[2]] += 1
+
+        if candidates_dict[row[2]] > winner:
+            winner = candidates_dict[row[2]]
+
+    for key, value in candidates_dict.items():
+        if value == winner:
+            winner_name = str(key)
             
-    print(candidates_dict)
+    print(winner_name)
     
