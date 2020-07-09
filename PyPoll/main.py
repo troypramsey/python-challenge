@@ -48,7 +48,7 @@ with open(csv_path, 'r') as csv_file:
     print("---------------------")
     # Iterates over candidate names and votes received and prints them to individual f-strings
     for key, value in candidates_dict.items():
-        print(f"{key}: {round(value/total_votes * 100, 2)}% ({value})")
+        print(f"{key}: {round(value/total_votes * 100, 2)}00% ({value})")
     print("---------------------")
     print(f"Winner: {winner_name}")
     print("---------------------")
@@ -61,7 +61,7 @@ with open(csv_path, 'r') as csv_file:
         file.write("---------------------\n")
         # Iterates over candidate names and votes received and prints them to individual f-strings
         for key, value in candidates_dict.items():
-            file.write(f"{key}: {round(value/total_votes * 100, 2)}% ({value})\n")
+            file.write(f"{key}: {round(value/total_votes * 100, 2)}00% ({value})\n")
         file.write("---------------------\n")
         file.write(f"Winner: {winner_name}\n")
         file.write("---------------------\n")
