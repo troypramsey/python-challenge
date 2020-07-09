@@ -1,7 +1,6 @@
 # Importing modules for reading and writing csv files
 import os
 import csv
-# import sys
 
 # Initializing path variable
 csv_path = os.path.join("Resources", "election_data.csv")

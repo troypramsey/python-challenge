@@ -1,5 +1,7 @@
+# Importing modules
 import os
 import csv
+
 # Initializing path object
 csv_path = os.path.join("Resources", "budget_data.csv")
 
