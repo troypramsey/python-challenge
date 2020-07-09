@@ -20,17 +20,22 @@ with open(csv_path, 'r') as csv_file:
 
     # Iterates through each row
     for row in csvreader:
+
         # Incrementing Total Votes
         total_votes += 1
+
         # Populates dictionary with new candidate as key and sets initial key value as 1
         if row[2] not in candidates_dict:
             candidates_dict[row[2]] = 1
+
         # Increments each candidate's vote count
         else:
             candidates_dict[row[2]] += 1
+
         # Increments winner variable
         if candidates_dict[row[2]] > winner:
             winner = candidates_dict[row[2]]
+            
     # Iterates over candidate dictionary to assign the winner's key to a string variable
     for key, value in candidates_dict.items():
         if value == winner:
@@ -49,7 +54,7 @@ with open(csv_path, 'r') as csv_file:
     print("---------------------")
         
     # Write the results to "election_results.txt"
-    with open("election_results.txt", "w") as file:
+    with open("Analysis/election_results.txt", "w") as file:
         file.write("Election Results \n")
         file.write("---------------------\n")
         file.write(f"Total Votes: {total_votes}\n")

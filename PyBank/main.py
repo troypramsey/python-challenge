@@ -74,5 +74,5 @@ with open(csv_path, 'r') as csv_file:
     print(analysis)
 
     # Writing the analysis to an external .txt
-    with open('budget_analysis.txt', 'w') as file:
+    with open('Analysis/budget_analysis.txt', 'w') as file:
         file.write(analysis)
