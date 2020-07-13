@@ -52,9 +52,12 @@ with open(csv_path, 'r') as csv_file:
     print("---------------------")
     print(f"Winner: {winner_name}")
     print("---------------------")
+
+    # Creating path variable for different operating systems
+    analysis_path = os.path.join('Analysis', 'election_results.txt')
         
     # Write the results to "election_results.txt"
-    with open("Analysis/election_results.txt", "w") as file:
+    with open(analysis_path, "w") as file:
         file.write("Election Results \n")
         file.write("---------------------\n")
         file.write(f"Total Votes: {total_votes}\n")

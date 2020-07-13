@@ -73,6 +73,9 @@ with open(csv_path, 'r') as csv_file:
     # Printing the analysis to the terminal
     print(analysis)
 
+    # Creating path variable for different operating systems
+    analysis_path = os.path.join('Analysis', 'budget_analysis.txt')
+
     # Writing the analysis to an external .txt
-    with open('Analysis/budget_analysis.txt', 'w') as file:
+    with open(analysis_path, 'w') as file:
         file.write(analysis)
